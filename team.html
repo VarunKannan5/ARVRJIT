@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Members</title>
+  <!-- Font Awesome for LinkedIn Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e, #162530, #0f3460);
+      color: #fff;
+      margin: 0;
+    }
+.main{
+    display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+}
+    .team-container {
+      max-width: 1200px;
+      padding: 20px;
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #00aaff;
+      font-size: 28px;
+    }
+
+    .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    position: sticky;
+    background: transparent;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.navbar-logo {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.navbar-container .navbar-menu {
+    display: flex;
+    text-align: center;
+    gap: 1rem;
+    list-style: none;
+}
+
+.navbar-container .navbar-menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 3px 20px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    transition: all 0.7s ease;
+    white-space: nowrap;
+}
+
+.navbar-container .navbar-menu li a:hover,
+.navbar-container .navbar-menu li a.active {
+    color: #162530;
+    background: rgb(0, 234, 255);
+    border:  #fff 2px 2px 2px 100px;
+}
+
+.navbar-toggle {
+    display: none;
+    background: transparent;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 1100px) {
+    .navbar {
+        backdrop-filter: none;
+    }
+
+    .navbar-container .navbar-menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem !important;
+        position: absolute;
+        height: 100vh;
+        width: 250px;
+        top: 0;
+        right: 0;
+        padding: 5rem 1.5rem;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+    }
+
+    .navbar-container .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-toggle {
+        display: block;
+        z-index: 999;
+    }
+
+    .navbar-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .navbar-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-container {
+        padding: 0 1rem;
+    }
+
+    .navbar-logo {
+        font-size: 1.7rem;
+    }
+
+    .navbar-container .navbar-menu li a {
+        font-size: 1.2rem;
+        padding: 3px 15px;
+    }
+}
+
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .member-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .member-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .member-card span {
+      display: block;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .member-card a {
+      color: #0e76a8;
+      font-size: 24px;
+      transition: color 0.3s ease;
+    }
+
+    .member-card a:hover {
+      color: #00aaff;
+    }
+  </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">AR VR</a>
+            <button class="navbar-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="navbar-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="project.html">Project</a></li>
+                <li><a href="join us.html">Join With Us</a></li>
+            </ul>
+        </div>
+    </nav>
+<div class="main">
+  <div class="team-container">
+    <h2>Our Team</h2>
+    <div class="grid">
+      <div class="member-card">
+        <span>N M Bharani Dharan</span>
+        <a href="https://linkedin.com/in/sample1" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>K Varun</span>
+        <a href="https://linkedin.com/in/sample2" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>Udhaya Kumar P</span>
+        <a href="https://linkedin.com/in/sample3" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>Sahaya Salon A S</span>
+        <a href="https://linkedin.com/in/sample4" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>Kalaiarasan C</span>
+        <a href="https://linkedin.com/in/sample5" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>Stajin Shabiyo A</span>
+        <a href="https://linkedin.com/in/sample6" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>Subin L</span>
+        <a href="https://linkedin.com/in/sample7" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>Sumantha Raj B B H</span>
+        <a href="https://linkedin.com/in/sample8" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>Therisena Arkey G</span>
+        <a href="https://linkedin.com/in/sample9" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>Blessed Ruban E M</span>
+        <a href="https://linkedin.com/in/sample10" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>Akash K</span>
+        <a href="https://linkedin.com/in/sample11" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>Janani P</span>
+        <a href="https://linkedin.com/in/sample12" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>Prabha K</span>
+        <a href="https://linkedin.com/in/sample13" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>Preethi M</span>
+        <a href="https://linkedin.com/in/sample14" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>Bhavya</span>
+        <a href="https://linkedin.com/in/sample15" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>Preethi</span>
+        <a href="https://linkedin.com/in/sample16" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>Sri Kumar</span>
+        <a href="https://linkedin.com/in/sample17" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>Jebin</span>
+        <a href="https://linkedin.com/in/sample18" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>Balaganesh</span>
+        <a href="https://linkedin.com/in/sample19" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>Sathish</span>
+        <a href="https://linkedin.com/in/sample20" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="member-card">
+        <span>Senthil Kumar</span>
+        <a href="https://linkedin.com/in/sample21" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="script.js"></script>
+</html>
