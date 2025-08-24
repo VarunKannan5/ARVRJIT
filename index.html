@@ -6,37 +6,42 @@
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="dindex.css">
+    <link rel="stylesheet" href="index.css">
     <title>ARVR_JIT</title>
 </head>
 <body>
     <div class="bg">
-    <div class="navbar">
-        <div class="logo"><a href="#">AR VR</a></div>
-        <div class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a href="#">Gallery</a></li>
-                <li class="nav-item"><a href="#">Projects</a></li>
-                <li class="nav-item"><a href="#">Team Members</a></li>
-                <li class="nav-item"><a href="#">Join With Us</a></li>
-                <li class="nav-item"><a href="#">About Us</a></li>
-                <li class="nav-item"><a href="contact">Contact Us</a></li>
+        <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">AR VR</a>
+            <button class="navbar-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="navbar-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="team.html">Team Members</a></li>
+                <li><a href="join us.html">Join With Us</a></li>
+                <li><a href="#about-us">About Us</a></li>
             </ul>
         </div>
-    </div>
-
+    </nav>
+        
     <div class="header">
         <!-- <img src="headerbg.jpg" class="headerbg"> -->
         <div class="theme">“Redefining Reality Through Innovation”</div>
         <div class="sub-header">Augmented Reality & Virtual Reality</div>
-        <div class="sub-text">Dream | Build | Live</div>
+        <div class="sub-text"> Dream | Build | Live</div>
         <div class="header-btn">
             <button class="btn-1"><a href="#">Projects</a></button>
-            <button class="btn-2"><a href="#">Join Us</a></button>
+            <button class="btn-2"><a href="join us.html">Join Us</a></button>
         </div>
     </div>
 
-    <div class="about-us">
+    <!-- <div class="about-us" id="about-us">
         <div class="about-title">About Us</div>
         <div class="about-text"> We are a multidisciplinary research lab dedicated to advancing immersive technologies. Our mission is to explore, develop, and deploy AR/VR solutions that transform how people learn, work, and interact.</div>
         <div class="about-title">Mission</div>
@@ -45,7 +50,56 @@
         <div class="about-text"> A future where AR and VR are seamlessly integrated into everyday life, empowering innovation across industries.</div>
         <div class="about-title">Our Team</div>
         <div class="about-text"> Our lab is powered by a diverse team of engineers, designers, researchers, and storytellers. Together, we push the boundaries of what’s possible in spatial computing.</div>
-    </div>
+    </div> -->
+<div style="background-image: url(images/aboutbg.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; padding: 20px;">
+    <div class="about-us" id="about-us">
+    <h2>About Us</h2>
+    <p>
+        We are a multidisciplinary research lab dedicated to advancing immersive technologies. 
+        Our mission is to explore, develop, and deploy cutting-edge AR/VR solutions that 
+        transform the way people learn, work, and interact.
+    </p>
+
+    <h2>Mission</h2>
+    <p>
+        To pioneer immersive experiences that enhance human understanding 
+        and seamlessly bridge the gap between the digital and physical worlds.
+    </p>
+
+    <h2>Vision</h2>
+    <p>
+        A future where AR and VR are fully integrated into everyday life, 
+        driving creativity, innovation, and meaningful human connections across industries.
+    </p>
+
+    <h2>Our Team</h2>
+    <p>
+        Our lab is powered by a passionate and diverse team of engineers, designers, researchers, 
+        and storytellers. Together, we push the boundaries of spatial computing to create impactful experiences.
+    </p>
+</div>
+</div>
+
+    <div class="gallery">
+  <img src="images/1 (1).jpg" alt="Image 1" onclick="openLightbox(0)">
+  <img src="images/1 (2).png" alt="Image 2" onclick="openLightbox(1)">
+  <img src="images/1 (3).jpg" alt="Image 3" onclick="openLightbox(2)">
+  <img src="images/1 (4).jpg" alt="Image 4" onclick="openLightbox(3)">
+  <img src="images/1 (5).jpg" alt="Image 5" onclick="openLightbox(4)">
+  <img src="images/1 (6).jpg" alt="Image 6" onclick="openLightbox(5)">
+  <img src="images/1 (7).jpg" alt="Image 7" onclick="openLightbox(6)">
+  <img src="images/1 (8).jpg" alt="Image 8" onclick="openLightbox(7)">
+  <a href="gallery.html" style="color: black;font-size: 0.8rem;font-weight: 500;width: 100%;">View More...</a>
+</div>
+
+<!-- Fullscreen Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <span class="nav-btn prev" onclick="changeImage(-1)">&#10094;</span>
+  <img id="lightbox-img" src="">
+  <span class="nav-btn next" onclick="changeImage(1)">&#10095;</span>
+</div>
+
 
     <div class="project">
         <div class="pro-title">Projects</div>
@@ -64,7 +118,7 @@
         <div class="join-title">Join With Us</div>
         <div class="join-para">At the AR/VR Innovation Lab, we’re not just building immersive experiences—we’re shaping the future of how people learn, heal, create, and connect. Whether you're a student, researcher, developer, or designer, there's a place for you here.</div>
         <div class="join-sub-title">Make Your Career Shine With Us</div>
-        <a href="#" class="join-btn">Start With Us</a>
+        <a href="join us.html" class="join-btn">Start With Us</a>
     </div>
 
     <div class="footer">
@@ -72,16 +126,12 @@
         <div class="footer-para">Exploring immersive technologies to shape the future. We develop cutting-edge solutions in Augmented and Virtual Reality for education, healthcare, industry, and beyond.</div>
         <div class="footer-logo">Quick Links</div>
         <ul class="footer-para">
-            <li><a href="#"> Home</a></li>
-            <li><a href="#"> About Us</a></li>
-            <li><a href="#"> Projects</a></li>
-            <li><a href="#"> Join Us</a></li>
-        </ul>
-        <div class="footer-logo">Legal & Accessibility</div>
-        <ul class="footer-para">
-            <li><a href="#"> Privacy Policy</a></li>
-            <li><a href="#"> Terms of Use</a></li>
-            <li><a href="#"> Accessibility Statement</a></li>
+            <li><a href="index.html"> Home</a></li>
+            <li><a href="#about-us"> About Us</a></li>
+            <li><a href="gallery.html"> Gallery</a></li>
+            <li><a href="project.html"> Projects</a></li>
+            <li><a href="team.html"> Team Members</a></li>
+            <li><a href="join us.html"> Join With Us</a></li>
         </ul>
         <div class="footer-logo">Contact Us</div>
         <div class="footer-para" id="Contact">
@@ -91,7 +141,7 @@
         </div>
         <div class="copyrights">© 2025 AR/VR Innovation Lab. All rights reserved.</div>
     </div>
-
 </div>
 </body>
+<script src="script.js"></script>
 </html>

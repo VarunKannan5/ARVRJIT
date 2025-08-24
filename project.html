@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Showcase</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #f8fafc;
+    }
+    .container {
+      padding: 50px 20px;
+      max-width: 1100px;
+      margin: auto;
+      background: rgba(0, 10, 32, 0.8);
+      border-radius: 15px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      color: #38bdf8;
+    }
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background: transparent;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1600px;
+
+}
+
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.navbar-container .navbar-menu {
+    display: flex;
+    text-align: center;
+    gap: 1rem;
+    list-style: none;
+}
+
+.navbar-container .navbar-menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 3px 20px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    transition: all 0.7s ease;
+    white-space: nowrap;
+}
+
+.navbar-container .navbar-menu li a:hover,
+.navbar-container .navbar-menu li a.active {
+    color: #162530;
+    background: rgb(0, 234, 255);
+    border:  #fff 2px 2px 2px 100px;
+}
+
+.navbar-toggle {
+    display: none;
+    background: transparent;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 1100px) {
+    .navbar {
+        backdrop-filter: none;
+    }
+
+    .navbar-container .navbar-menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem !important;
+        position: absolute;
+        height: 100vh;
+        width: 250px;
+        top: 0;
+        right: 0;
+        padding: 5rem 1.5rem;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+    }
+
+    .navbar-container .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-toggle {
+        display: block;
+        z-index: 999;
+    }
+
+    .navbar-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .navbar-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+@media (max-width: 1100px) {
+    .navbar-container {
+        padding: 0 1rem;
+    }
+
+    .navbar-logo {
+        font-size: 1rem;
+    }
+
+    .navbar-container .navbar-menu li a {
+        font-size: 0.8rem;
+        padding: 0px 15px;
+    }
+}
+
+    /* Grid + Cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #1e293b;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 15px;
+    }
+    .card-content h3 {
+      margin: 0 0 10px;
+      color: #facc15;
+      font-size: 1.3rem;
+    }
+    .card-content p {
+      font-size: 1.1rem;
+      color: #cbd5e1;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 700px;
+      width: 90%;
+      text-align: left;
+      position: relative;
+      animation: fadeIn 0.3s ease;
+    }
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .modal-content h2 {
+      margin-top: 0;
+      color: #38bdf8;
+      font-size: 1.5rem;
+    }
+    .modal-content p {
+      color: #e2e8f0;
+      line-height: 1.5;
+      font-size: 1.1rem;
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 30px;
+      cursor: pointer;
+      color: #f87171;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">AR VR</a>
+            <button class="navbar-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="navbar-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="join us.html">Join With Us</a></li>
+                <li><a href="team.html">Team Members</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+  <div class="container">
+    <h1>AR & VR Lab Projects</h1>
+    <div class="grid">
+      <!-- <div class="card" onclick="openModal('project1')">
+        <img src="project images\kovil.jpg" alt="">
+        <div class="card-content">
+          <h3>Echoes of Tanjore</h3>
+          <p>Virtual heritage site tour with a VR guide.</p>
+        </div>
+        </div> -->
+
+        <div class="card" onclick="openModal('project2')">
+        <img src="project images\kovil.jpg" alt="">
+        <div class="card-content">
+          <h3>Echoes of Tanjore</h3>
+          <p>Virtual heritage site tour with a VR guide.</p>
+        </div>
+      </div>
+
+        <div class="card" onclick="openModal('project1')">
+        <img src="project images\agri.jpg" alt="">
+        <div class="card-content">
+          <h3>VR Integrated Smart Agriculture</h3>
+          <p>Using this VR session the user can learn how to grow a plant and also the uses of plants</p>
+        </div>
+      </div>
+      
+      <div class="card" onclick="openModal('project3')">
+        <img src="https://picsum.photos/id/1018/600/400" alt="">
+        <div class="card-content">
+          <h3>Krishi Balancer</h3>
+          <p>Robotics for farming with soil pH detection.</p>
+        </div>
+      </div>
+      <div class="card" onclick="openModal('project4')">
+        <img src="project images\ar lab.jpg" alt="">
+        <div class="card-content">
+          <h3>AR Powered Lab</h3>
+          <p>Transforming physical labs into AR-based labs.</p>
+        </div>
+      </div>
+      <div class="card" onclick="openModal('project5')">
+        <img src="project images\campus.jpg" alt="">
+        <div class="card-content">
+          <h3>Insta Campus</h3>
+          <p>3D VR model of our college campus.</p>
+        </div>
+      </div>
+      <div class="card" onclick="openModal('project6')">
+        <img src="project images\stat.png" alt="">
+        <div class="card-content">
+          <h3>STAT</h3>
+          <p>Web app to monitor AR/VR lab projects.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <div id="project1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('project1')">&times;</span>
+      <img src="project images\agri.jpg" alt="">
+      <h2>VR Integrated Smart Agriculture</h2>
+      <p><b>Team Members:</b> Chriswin, Karthikeyan, Bejisto Joseph, Sujitha</p>
+      <p>This VR simulation is done in unity. Using this  VR simulation the user can learn about the modern  farming techniques and the user can come to know about the plants benefits and also learn how to do farmming.In this we used c# code. </p>
+    </div>
+  </div>
+
+  <div id="project2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('project2')">&times;</span>
+      <img src="project images\kovil.jpg" alt="">
+      <h2>Echoes of Tanjore</h2>
+      <p><b>Team Members:</b> Sumanth Raaj, Kavinila, Therisena Arkey</p>
+      <p>A VR heritage experience featuring the Tanjore Temple with a virtual tourist guide.</p>
+    </div>
+  </div>
+
+  <div id="project3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('project3')">&times;</span>
+      <img src="https://picsum.photos/id/1018/1200/800" alt="">
+      <h2>Krishi Balancer</h2>
+      <p><b>Team Members:</b> Janani P, Prabha K, Preethi M, Akash K, Ruban</p>
+      <p>A robotic farming solution that performs crop picking and soil pH analysis with fertilizer recommendations.</p>
+    </div>
+  </div>
+
+  <div id="project4" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('project4')">&times;</span>
+      <img src="project images\ar lab.jpg" alt="">
+      <h2>AR Powered Lab</h2>
+      <p><b>Team Members:</b> Janani, Prabha, Preethi</p>
+      <p>Transforms physical labs into AR-powered interactive digital labs displaying student projects.</p>
+    </div>
+  </div>
+
+  <div id="project5" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('project5')">&times;</span>
+      <img src="project images\campus.jpg" alt="">
+      <h2>Insta Campus</h2>
+      <p><b>Team Members:</b> Bharani Dharan N M, Stajin Shabioyo A, Parkavi S, Nandhikha S</p>
+      <p>A 3D VR model of the college campus allowing students to explore virtually with a VR headset.</p>
+    </div>
+  </div>
+
+  <div id="project6" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('project6')">&times;</span>
+      <img src="project images\stat.png" alt="">
+      <h2>STAT</h2>
+      <p><b>Team Members:</b> Dharsan, Subin, Suriya Prakash</p>
+      <p>A web app to monitor and track AR-VR lab project reports with easy project management.</p>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = "flex";
+    }
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+    window.onclick = function(event) {
+      document.querySelectorAll('.modal').forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+<script src="script.js"></script>
+</html>
